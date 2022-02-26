@@ -3,7 +3,7 @@ const logger = require('morgan');
 const app = express();
 const PORT = 3000;
 
-const usersRouter = require('./routes/users');
+const accountRouter = require('./routes/accoutRouter');
 const blockRouter = require('./routes/blockRouter');
 const txRouter = require('./routes/txRouter');
 
@@ -12,6 +12,7 @@ app.use(logger('dev'));
 app.use(express.json());
 
 // Test code
+app.use('/account', accountRouter);
 app.use('/block', blockRouter);
 app.use('/tx', txRouter);
 

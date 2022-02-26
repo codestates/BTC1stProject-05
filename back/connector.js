@@ -65,5 +65,23 @@ module.exports = {
         });
 
         return result;
+    },
+    getAccountBlance: async(chain, address) => {
+        var result;
+        
+        await axios.get(`${getURL(chain)}address/${address}/balances`).then((res) => {
+            result = res.data.stx;
+        });
+
+        return result;
+    },
+    getAccountTxs: async(chain, address, index) => {
+        var result;
+
+        await axios.get(`${getURL(chain)}address/${address}/transactions?limit=30&offset=${index}`).then((res) => {
+            result = res.data.results;
+        });
+
+        return result;
     }   
 }
