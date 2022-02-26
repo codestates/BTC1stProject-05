@@ -1,11 +1,11 @@
 const connector = require('../connector');
 
 module.exports = {
-    getBlocks : async(req, res, next) => {
+    getBlalnce : async(req, res, next) => {
         try{
-            let {index, chain} = req.query;
-            let datas = await connector.getRecentBlocks(chain, index);
-            
+            let {chain, address} = req.query;
+            let datas = await connector.getAccountBlance(chain, address);
+
             res.status('200').send({
                 code: '200',
                 message: "Success",
@@ -19,17 +19,15 @@ module.exports = {
             });
         }
     },
-    getSpecificBlock: async(req, res, next) => {
+    getAccountTxs: async(req, res, next) => {
         try{
-            let {hash, chain} = req.query;
-            let block = await connector.getBlockByHash(chain, hash);
-            let txs = await connector.getTxsInBlock(chain, hash);
-            block.txs = txs;
-            
+            let {chain, address, index} = req.query;
+            let datas = await connector.getAccountTxs(chain, address, index);
+
             res.status('200').send({
                 code: '200',
                 message: "Success",
-                data: block
+                data: datas
             });
         }
         catch(e){
