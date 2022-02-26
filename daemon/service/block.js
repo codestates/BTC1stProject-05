@@ -1,7 +1,28 @@
 const connector = require('../connector');
-const {Block} = require('../db/models')
+const {Block, Tx} = require('../db/models')
 const { connectWebSocketClient } = require('@stacks/blockchain-api-client');
 const WSS_MAINET_URL = require('../config/stack_config').WSS_MAINET_URL;
+
+
+async function updateBlock(block) {
+    await Block.create({
+        'hash': block.hash,
+        'tx_count': block.txs.length,
+        'height': block.height,
+        'miner_txid': block.miner_txid,
+        'time': block.burn_block_time
+    }).catch(err => {
+        console.log(err);
+        throw "DB Update Exception";
+    });
+
+    let txs = await connector.getTxsInBlock(block.height);
+    await Tx.bulkCreate(txs)
+    .catch(err =>{
+        console.log(err);
+        throw "DB Update Exception";
+    });
+}
 
 module.exports = {
     UpdateWholeBlocks: async() => {
@@ -30,18 +51,7 @@ module.exports = {
             const client = await connectWebSocketClient(WSS_MAINET_URL);
             
             await client.subscribeBlocks((block) => {
-                console.log(block);
-
-                Block.create({
-                    'hash': block.hash,
-                    'tx_count': block.txs.length,
-                    'height': block.height,
-                    'miner_txid': block.miner_txid,
-                    'time': block.burn_block_time
-                }).catch(err => {
-                    console.log(err);
-                    throw "DB Update Exception";
-                });
+                updateBlock(block);
             });
         }
         catch(err){

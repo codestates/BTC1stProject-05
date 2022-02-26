@@ -1,12 +1,11 @@
 const cron = require('node-cron');
 const block = require('./service/block');
-const connector = require('./connector');
 const models = require('./db/models/index');
 
-v = async()=> {
+v = async() => {
     console.log('node start');
     //let s = await block.UpdateWholeBlocks();
-    let v = await block.UpdateBlock();
+    let v = block.UpdateBlock();
 }
 v();
 

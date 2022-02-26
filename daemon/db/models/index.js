@@ -35,5 +35,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.Block = require('./Block')(sequelize, Sequelize.DataTypes);
+db.Tx = require('./Tx')(sequelize, Sequelize.DataTypes);
 
 module.exports = db;

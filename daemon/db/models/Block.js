@@ -26,5 +26,13 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true
     });
 
+    block.associate = function (models) {
+        models.Block.hasMany(models.Tx, {
+          foreignKey: 'f_hash',
+          sourceKey: 'hash',
+          onDelete: 'cascade',
+        });
+    };
+
     return block;
 }
