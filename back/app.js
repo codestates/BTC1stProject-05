@@ -4,12 +4,17 @@ const app = express();
 const PORT = 3000;
 
 const usersRouter = require('./routes/users');
+const blockRouter = require('./routes/blockRouter');
+const txRouter = require('./routes/txRouter');
 
 // view engine setup
 app.use(logger('dev'));
 app.use(express.json());
 
 // Test code
+app.use('/block', blockRouter);
+app.use('/tx', txRouter);
+
 app.use('/', (req, res) =>{
   res.send('Hello!');
 });
