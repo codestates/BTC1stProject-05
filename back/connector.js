@@ -1,5 +1,5 @@
 const axios = require('axios');
-const url = require('../daemon/config/stack_config');
+const url = require('./config/stacks_config');
 
 
 function getURL(chain) {
