@@ -1,5 +1,5 @@
 const axios = require('axios');
-const url = require('./config/stack_config').HTTPS_MAINNET_URL;
+const url = require('../daemon/config/stack_config').HTTPS_MAINNET_URL;
 
 
 function getContent(tx, type) {
@@ -16,7 +16,7 @@ function getContent(tx, type) {
 module.exports = {
     getRecentBlocks: async(index) => {
         var result;
-        await axios.get(`${url}block?limit=30&offset=${index != 0 ? index : 0}`).then((res) => {
+        await axios.get(`${url}block?limit=30&offset=${index}`).then((res) => {
             result = res.data.results;
         });
 
@@ -26,7 +26,10 @@ module.exports = {
                 'tx_count': block.txs.length,
                 'height': block.height,
                 'miner_txid': block.miner_txid,
-                'time': block.burn_block_time
+                'create_time': block.burn_block_time,
+                'burn_block_hash': block.burn_block_hash,
+                'burn_block_height': block.burn_block_height,
+                'tx_count': block.txs.length
             }
         });
     },
@@ -39,10 +42,10 @@ module.exports = {
 
         return height;
     },
-    getTxsInBlock: async(blockHeight) => {
+    getTxsInBlock: async(hash) => {
         var result;
 
-        await axios.get(`${url}tx/block_height/${blockHeight}`).then((res) => {
+        await axios.get(`${url}tx/block/${hash}`).then((res) => {
             result = res.data.results.map((tx) => {
                 return {
                     'block_hash': tx.block_hash,

@@ -8,12 +8,3 @@ v = async() => {
     let v = block.UpdateBlock();
 }
 v();
-
-// db Update Code
-// models.sequelize.sync().then(() => {
-//     console.log('success');
-// }).catch(err =>{
-//     console.log(err);
-// });
-
-//const task = cron.schedule(5, )

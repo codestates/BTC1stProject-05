@@ -4,6 +4,6 @@ const {getBlocks, getSpecificBlock} = require('../service/block');
 /* GET users listing. */
 router.get('/', getBlocks);
 
-router.post('/specific', getSpecificBlock)
+router.get('/specific', getSpecificBlock)
   
 module.exports = router;

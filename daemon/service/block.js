@@ -1,4 +1,4 @@
-const connector = require('../connector');
+const connector = require('../../back/connector');
 const {Block, Tx} = require('../db/models')
 const { connectWebSocketClient } = require('@stacks/blockchain-api-client');
 const WSS_MAINET_URL = require('../config/stack_config').WSS_MAINET_URL;

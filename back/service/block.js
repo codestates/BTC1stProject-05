@@ -1,16 +1,15 @@
-const {Block, Tx} = require('../src/db/models');
+const connector = require('../connector');
 
 module.exports = {
     getBlocks : async(req, res, next) => {
         try{
-            let datas = await Block.findAll({
-                attributes: ['hash', 'height', 'time', 'miner_txid'],
-                order: [['height', 'DESC']]
-            });
+            let {index, chain} = req.query;
+            let datas = await connector.getRecentBlocks(chain, index);
+            
             res.status('200').send({
                 code: '200',
                 message: "Success",
-                data: datas.map(row => row.dataValues)
+                data: datas
             });
         }
         catch(e){
@@ -22,24 +21,15 @@ module.exports = {
     },
     getSpecificBlock: async(req, res, next) => {
         try{
-            let datas = await Block.findOne({
-                attributes: ['hash', 'tx_count', 'height', 'miner_txid', 'time'],
-                where: {
-                    hash: req.body.hash
-                }
-            });
-            let txs = await Tx.findAll({
-                attributes: ['tx_id', 'tx_status', 'tx_type', 'sender_address', 'block_hash'],
-                where:{
-                    block_hash: datas.dataValues.hash
-                }
-            });
-            datas.dataValues.txs = txs;
-
+            let {hash, chain} = req.query;
+            let block = await connector.getBlockByHash(chain, hash);
+            let txs = await connector.getTxsInBlock(chain, hash);
+            block.txs = txs;
+            
             res.status('200').send({
                 code: '200',
                 message: "Success",
-                data: datas.dataValues
+                data: block
             });
         }
         catch(e){
