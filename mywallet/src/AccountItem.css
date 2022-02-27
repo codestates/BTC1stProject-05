@@ -1,0 +1,25 @@
+.account-item {
+    margin:0.2rem;
+    display: flex;
+    align-items: left; /*세로 가운데 정렬*/
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+    font-size: small;
+}
+.section{
+  padding:1rem;
+  border-radius:8px;
+  border:1px solid #b388ff;
+
+}
+
+.account-text {
+  flex: 1; /* 체크, 엑스를 제외한 공간 다 채우기 */
+  word-break: break-all;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #adb5bd;
+}

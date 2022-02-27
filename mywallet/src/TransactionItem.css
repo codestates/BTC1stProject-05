@@ -1,0 +1,14 @@
+
+.div{
+    padding:0px;
+    margin:0px;
+    display: inline-block;
+}
+.box{
+    padding:3rem;
+}
+.divider{
+    margin-top:1rem;
+    margin-bottom:1rem;
+    border: 1px solid #695656;
+}

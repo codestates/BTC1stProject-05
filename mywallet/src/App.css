@@ -1,0 +1,18 @@
+
+* {
+    background: white;
+}
+.App {
+    background: white;
+    width: 512px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+    /* margin: 0 auto; 페이지 중앙 정렬 */
+    margin-top: 4rem;
+}
+
+.container {
+    padding: 5%;
+}
+.shadow {
+box-shadow: 5px 5px 10px #e4e4e4, -5px -5px 10px #ffffff;
+}

@@ -1,0 +1,63 @@
+.account-list-template {
+    background: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+    /* margin: 0 auto; //페이지 중앙 정렬 */
+    margin-top: 4rem;
+  }
+  
+.account-form{
+    /* text-align: center; */
+    /* align-items: center; */
+    margin : 0.5rem;
+    padding : 0.5rem;
+    border-bottom: 1px solid #e7b9ff;
+    color: #b388ff;
+    cursor: pointer;
+  }  
+.account-form-static{
+    margin : 0.5rem;
+    padding : 0.5rem;
+    color: #b388ff;
+  }
+.title {
+    padding: 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 100;
+    background: #b388ff;;
+    color: white;
+  }
+.subtitle{
+  font-size: small;
+  text-align: left;
+  background: #b388ff;
+  color: white;
+}
+
+.title-wrapper {
+  display: flex;
+  background: #b388ff;
+  align-items: center; 
+}
+.form-wrapper {
+  padding: 1rem;
+}
+.circle-button {
+  margin-left: 70%;
+  background: gold;
+  color: black;
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  display: flex; /* or inline-flex */
+  align-items: center; 
+  font-size:0.6rem;
+  font-weight: bold;
+  justify-content: center;
+  cursor: pointer;
+  /* margin: 0 auto; */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */
+}
+.circle-button:hover {
+  background: #e7b9ff;
+}
