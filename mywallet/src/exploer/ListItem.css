@@ -1,0 +1,17 @@
+.ListItem{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.head{
+    margin: 1rem;
+}
+
+.mead{
+    margin: 1rem;
+}
+
+.tail{
+    margin: 1rem;
+}

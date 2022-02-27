@@ -3,19 +3,26 @@ import {Route, Routes} from "react-router-dom";
 import Login from './Login';
 import './App.css';
 import Home from "./Home";
+import Template from './exploer/Template';
+import Specific from './exploer/Specific';
+import Account from './exploer/Account';
 import AccountInfo from "./AccountInfo";
+
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+      <>
+        <Routes>
+        <Route exact path='/account' element={<Account />}/>
+          <Route exact path='/specific' element={<Specific />}/>
+          <Route exact path='/block' element={<Template type="Block"/>}/>
+          <Route exact path='/tx' element={<Template type="Tx"/>}/>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
             <Route path="/accountinfo" element={<AccountInfo />} />
         </Routes> 
-        </div>
-      </div>
+      </>
     );
   }
 }

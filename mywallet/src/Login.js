@@ -48,7 +48,9 @@ const Login = () => {
     navigate('/home', { state: { wallet: genWallet } });
   }
   return (
-    <main>
+<div className="container">
+  <div className="App">
+	  <main>
       <div className="title">MyWallet</div>
       <section className="form-wrapper">
         <div className="div">  니모닉 코드를 입력해주세요</div>
@@ -61,7 +63,8 @@ const Login = () => {
         </section>
       </section>
     </main>
-  );
+	</div>
+</div>  );
 };
 
 export default Login
