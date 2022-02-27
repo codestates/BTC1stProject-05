@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {Route, Routes} from "react-router-dom";
 import Login from './Login';
 import './App.css';
+import Signup from "./Signup";
 import Home from "./Home";
 import Template from './exploer/Template';
 import Specific from './exploer/Specific';
 import Account from './exploer/Account';
-import AccountInfo from "./AccountInfo";
 
 class App extends Component {
   render() {
@@ -20,7 +20,6 @@ class App extends Component {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
-            <Route path="/accountinfo" element={<AccountInfo />} />
         </Routes> 
       </>
     );
