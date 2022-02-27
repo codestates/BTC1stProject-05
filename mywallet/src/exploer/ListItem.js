@@ -8,13 +8,15 @@ const setData = (type, data) => {
             return{
                 head: `#${data.height}`,
                 mead: `Txs: ${data.txs.length}`,
-                tail: `${data.hash.substring(0,20)}...`
+                tail: `${data.hash.substring(0,20)}...`,
+                hash: data.hash
             }
         case "tx":
             return{
                 head: `#${data.tx_type}`,
                 mead: `Sender: ${data.sender_address.substring(0, 10)}...`,
-                tail: `${data.tx_id.substring(0,10)}...`
+                tail: `${data.tx_id.substring(0,10)}...`,
+                hash: data.tx_id
             }
             break;
     }
@@ -22,11 +24,11 @@ const setData = (type, data) => {
 
 const ListItem = (props) => {
 
-    const{head, mead, tail} = setData(props.type, props.data);
+    const{head, mead, tail, hash} = setData(props.type, props.data);
 
     return (
         <>
-            <a>
+            <a href={`specific?type=${props.type}&hash=${hash}`}>
                 <div className="ListItem">
                     <div className="head">{head}</div>
                     <div className="mead">{mead}</div>

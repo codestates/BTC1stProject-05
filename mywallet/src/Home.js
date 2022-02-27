@@ -73,17 +73,21 @@ const Home = () => {
         
     }
     return (
-        <main className="account-list-template">
-            <div className="title">
-                MyWallet
-            </div>
-            <div className="account-form" onClick={newAccount}><li>계정 생성</li></div>
-            <div className="account-form" onClick={addAccount}><li>계정 추가</li></div>
-            <div className="account-form-static"><li>계정 주소 목록</li></div>
-            <section className="form-wrapper">
-                {<AccountList accounts={accounts} />}
-            </section>
-        </main>
+        <div className="container">
+          <div className="App">
+            <main className="account-list-template">
+                <div className="title">
+                    MyWallet
+                </div>
+                <div className="account-form" onClick={newAccount}><li>계정 생성</li></div>
+                <div className="account-form" onClick={addAccount}><li>계정 추가</li></div>
+                <div className="account-form-static"><li>계정 주소 목록</li></div>
+                <section className="form-wrapper">
+                    {<AccountList accounts={accounts} />}
+                </section>
+            </main>
+          </div>
+        </div>
     );
 }
 export default Home;

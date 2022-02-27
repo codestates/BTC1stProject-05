@@ -30,21 +30,25 @@ class Template extends React.Component {
             <>
                 {isLoading ?
                     <div>Loading...</div> :
-                    <div className='list_body'>
-                        <div className='app-title'>{type} Explorer</div>
-                        <button onClick={() => {this.getData(type)}}>Add More Item</button>
-                        <div className='list'>
-                            {
-                                datas.map(d => {
-                                    return(
-                                        <ListItem 
-                                            type={type.toLowerCase()}
-                                            key={d.height} 
-                                            data={d}    
-                                        />
-                                    )
-                                })
-                            }
+                    <div className="container">
+                        <div className="App">
+                            <div className='list_body'>
+                                <div className='app-title'>{type} Explorer</div>
+                                <button onClick={() => {this.getData(type)}}>Add More Item</button>
+                                <div className='list'>
+                                    {
+                                        datas.map(d => {
+                                            return(
+                                                <ListItem 
+                                                    type={type.toLowerCase()}
+                                                    key={d.height} 
+                                                    data={d}    
+                                                />
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
                 }

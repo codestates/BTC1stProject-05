@@ -5,21 +5,21 @@ import './App.css';
 import Signup from "./Signup";
 import Home from "./Home";
 import Template from './exploer/Template';
+import Specific from './exploer/Specific';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="App">
-          <Routes>
-            <Route path='/block' element={<Template type="Block"/>}/>
-            <Route path='/tx' element={<Template type="Tx"/>}/>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/home" element={<Home />} />
+      <>
+        <Routes>
+          <Route exact path='/specific' element={<Specific />}/>
+          <Route exact path='/block' element={<Template type="Block"/>}/>
+          <Route exact path='/tx' element={<Template type="Tx"/>}/>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
         </Routes> 
-        </div>
-      </div>
+      </>
     );
   }
 }

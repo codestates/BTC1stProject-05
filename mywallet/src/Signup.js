@@ -35,18 +35,22 @@ const SignUp = () => {
   }
 
   return (
-    <main>
-      <div className="title">
-        MyWallet
-      </div>
-      <div className="div"> 계정 관리를 위한 비밀번호를 입력해주세요 </div>
-      <section className="form-wrapper">
-        <div className="form">
-          <input className="input" onChange={handleChange} />
-          <div className="create-button" onClick={signup}>Sign up</div>
-        </div>
-      </section>
-    </main>
+    <div className="container">
+          <div className="App">
+            <main>
+              <div className="title">
+                MyWallet
+              </div>
+              <div className="div"> 계정 관리를 위한 비밀번호를 입력해주세요 </div>
+              <section className="form-wrapper">
+                <div className="form">
+                  <input className="input" onChange={handleChange} />
+                  <div className="create-button" onClick={signup}>Sign up</div>
+                </div>
+              </section>
+            </main>
+          </div>
+    </div>
   );
 }
 export default SignUp;

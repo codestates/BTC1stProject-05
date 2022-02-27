@@ -42,28 +42,32 @@ const Login = () => {
   }
 
   return (
-    <main>
-      <div className="title">MyWallet</div>
-      <div className="div">  비밀번호와 key를 입력해주세요</div>
-      <div class="form">
-        <section className="form-wrapper">
-          <div className='form'>
-            <div > Password </div>
-            <input className="input" onChange={passwordChange} />
+    <div className="container">
+          <div className="App">
+            <main>
+              <div className="title">MyWallet</div>
+              <div className="div">  비밀번호와 key를 입력해주세요</div>
+              <div class="form">
+                <section className="form-wrapper">
+                  <div className='form'>
+                    <div > Password </div>
+                    <input className="input" onChange={passwordChange} />
+                  </div>
+                  <div className='form'>
+                    <div> SecreteKey </div>
+                    <input className="input" onChange={keyChange} />
+                  </div>
+                </section>
+                <section className="form-wrapper">
+                  <div className="create-button" onClick={signin}>Sign in</div>
+                </section>
+              </div>
+              <section className="form-wrapper">
+                <div className="signup-button" onClick={signup}> Sign Up</div>
+              </section>
+            </main>
           </div>
-          <div className='form'>
-            <div> SecreteKey </div>
-            <input className="input" onChange={keyChange} />
-          </div>
-        </section>
-        <section className="form-wrapper">
-          <div className="create-button" onClick={signin}>Sign in</div>
-        </section>
-      </div>
-      <section className="form-wrapper">
-        <div className="signup-button" onClick={signup}> Sign Up</div>
-      </section>
-    </main>
+    </div>
   );
 };
 
