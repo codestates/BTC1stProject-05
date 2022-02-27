@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { generateWallet, generateSecretKey, restoreWalletAccounts } from '@stacks/wallet-sdk';
-import { StacksTestnet } from '@stacks/network';
+import { StacksMainnet, StacksTestnet, StacksMocknet } from '@stacks/network';
 const Login = () => {
   const [password, setPassword] = useState('');
   const [key, setKey] = useState('');
@@ -27,7 +27,7 @@ const Login = () => {
       // `baseWallet` is returned from `generateWallet`
       wallet: genWallet,
       gaiaHubUrl: 'https://hub.blockstack.org',
-      network: new StacksTestnet()
+      network: new StacksMocknet()
     })
     //console.log(restoreWallet);
     navigate('/home', { state: { wallet: restoreWallet } });
@@ -53,7 +53,7 @@ const Login = () => {
           </div>
           <div className='form'>
             <div> SecreteKey </div>
-            <input className="input" onChange={keyChange} />
+            <textarea onChange={keyChange} />
           </div>
         </section>
         <section className="form-wrapper">

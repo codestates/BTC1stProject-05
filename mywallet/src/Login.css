@@ -1,6 +1,7 @@
 .form-wrapper {
   padding: 1rem;
   text-align: center;
+  margin: 0 auto;
 }
 .div {
   text-align: center;
@@ -9,23 +10,40 @@
 .form{
   text-align: center;
   align-items: center;
-  
+  font-size: small;
+}
+.title {
+  padding: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 100;
+  background: #b388ff;;
+  color: white;
 }
 .form-template {
     background: white;
-    width: 512px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
     margin: 0 auto; /* 페이지 중앙 정렬 */
     margin-top: 4rem;
 }
 .form input {
     flex: 1; /* 버튼을 뺀 빈 공간을 모두 채워줍니다 */
-    font-size: 0.1px;
     color:gray;
-    margin-left : 1rem;
+    margin-left : 2.5rem;
     outline: none;
     border: none;
+    font-size: small;
     border-bottom: 1px solid #e7b9ff;
+}
+.form textarea {
+  flex: 1; /* 버튼을 뺀 빈 공간을 모두 채워줍니다 */
+  color:gray;
+  margin-left : 2rem;
+  height: 100px;
+  outline: none;
+  font-size: small;
+  border-radius: 5px;
+  border: 1px solid #e7b9ff;
 }
 .signup-button {
   margin: 1rem;
@@ -35,12 +53,17 @@
 }
 
 .create-button {
-  margin: 1rem;
-  font-size: 1rem;
-  font-weight: 100;
+
   background: #b388ff;
   color: white;
-  cursor: pointer;
+  width: 60px; 
+  height: 60px;
+  font-size: large;
+  display: flex; /* or inline-flex */
+  align-items: center; 
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);/* 그림자 */
   
 }
 

@@ -4,6 +4,7 @@ import Login from './Login';
 import './App.css';
 import Signup from "./Signup";
 import Home from "./Home";
+import AccountInfo from "./AccountInfo";
 class App extends Component {
   render() {
     return (
@@ -13,6 +14,7 @@ class App extends Component {
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/accountinfo" element={<AccountInfo />} />
         </Routes> 
         </div>
       </div>
