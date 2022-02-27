@@ -4,14 +4,16 @@ import './Home.css';
 import AccountList from './AccountList';
 import { useLocation } from 'react-router-dom';
 import { generateNewAccount } from '@stacks/wallet-sdk';
+import { connectWebSocketClient } from '@stacks/blockchain-api-client';
 const Home = () => {
+    const [cnt, setCnt] = useState(0);
     const urlList = [
+        "https://stacks-node-api.testnet.stacks.co",
         "http://localhost:3999",
-        "https://stacks-node-api.testnet.stacks.co"
     ];
     const netstring = [
+        "테스트넷",
         "로컬넷",
-        "테스트넷"
     ]
     const [index, setIndex] = useState(0);
     const [currnet, setCurrNet] = useState(netstring[0]);
@@ -21,33 +23,32 @@ const Home = () => {
     const { wallet } = location.state;
     const [accounts, setAccount] = useState(wallet.accounts);
     const [updatewallet, updateWallet] = useState(wallet);
-
     const newAccount = async () => {
         const newWallet = generateNewAccount(updatewallet);
         setAccount(newWallet.accounts);
         updateWallet(newWallet);
     }
-    const changeNet = () => {
-        if(index === 0) {
-            setIndex(1);
-            setCurrNet(netstring[1]);
-            setURL(urlList[1]);
-            setChangeNet(netstring[0]);
-        }
-        else {
-            setIndex(0);
-            setCurrNet(netstring[0]);
-            setURL(urlList[0]);
-            setChangeNet(netstring[1]);
-        }
-    }
+    // const changeNet = () => {
+    //     if(index === 0) {
+    //         setIndex(1);
+    //         setCurrNet(netstring[1]);
+    //         setURL(urlList[1]);
+    //         setChangeNet(netstring[0]);
+    //     }
+    //     else {
+    //         setIndex(0);
+    //         setCurrNet(netstring[0]);
+    //         setURL(urlList[0]);
+    //         setChangeNet(netstring[1]);
+    //     }
+    // }
 
     return (
         <main className="account-list-template">
             <div className="title">
                 <div className = "title-wrapper">
                     <div className='subtitle'>{currnet} 실행 중</div>
-                    <div className='circle-button' onClick={changeNet}>{net} <br/>전환</div>
+                    {/* <div className='circle-button' onClick={changeNet}>{net} <br/>전환</div> */}
                 </div>
                     MyWallet
                 </div>

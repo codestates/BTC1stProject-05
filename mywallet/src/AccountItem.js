@@ -7,21 +7,19 @@ import {
 } from '@stacks/transactions';
 import {
   Configuration,
+  TransactionsApi,
   AccountsApi
 } from "@stacks/blockchain-api-client";
 
 const AccountItem = (props) => {
 
   const navigate = useNavigate();
-  //const testnetAddress = getStxAddress({ account, transactionVersion: TransactionVersion.Testnet });
   const [balance, setBalance] = useState();
   const url = props.url;
-  const privateKey = props.stxPrivateKey;
+  const account = props.account;
+  const privateKey =account.stxPrivateKey;
   const apiConfig = new Configuration({
     fetchApi: fetch,
-    // for mainnet, replace `testnet` with `mainnet`
-    //"https://stacks-node-api.testnet.stacks.co"
-    //'http://localhost:3999'
     basePath: url,
   });
 
@@ -32,12 +30,10 @@ const AccountItem = (props) => {
   const accountDetail = async () => {
     // initiate the /accounts API with the basepath and fetch library
     const accountsApi = new AccountsApi(apiConfig);
-
     // get balance for a specific account
     const balance = await accountsApi.getAccountBalance({
       principal: stacksAddress,
     });
-
     // get STX balance details
     const stxAmount = balance.stx;
     setBalance(stxAmount.balance);
@@ -46,7 +42,7 @@ const AccountItem = (props) => {
 
   const accountInfo = () => {
     //console.log(restoreWallet);
-    navigate('/accountinfo', { state: { stacksAddress: stacksAddress, balance: balance, key: privateKey } });
+    navigate('/accountinfo', { state: { account: account, url: url } });
   }
 
 

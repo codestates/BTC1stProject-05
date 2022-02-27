@@ -1,28 +1,65 @@
 
-.info-item {
-    /* display: flex; */
-    margin:0px;
+
+
+.info-text {
+    word-break: break-all;
     align-items: center; /*세로 가운데 정렬*/
     transition: all 0.15s;
     user-select: none;
     text-align: center;
     border:2px solid #b388ff;
+  }
+.input {
+    width:250px;
+    color:gray;
+    outline: none;
+    border: none;
+    font-size: small;
+    border-bottom: 1px solid #e7b9ff;
+}
+.input2 {
+    width:275px;
+    color:gray;
+    outline: none;
+    border: none;
+    font-size: small;
+    border-bottom: 1px solid #e7b9ff;
+}
+.input3 {
+    width:290px;
+    color:gray;
+    outline: none;
+    border: none;
+    font-size: small;
+    border-bottom: 1px solid #e7b9ff;
 }
 .top-title{
     background: #b388ff;
     color: black;
     margin-bottom: 0.5rem;
     font-size: large;
+
 }
 .body-title{
     font-size:2rem;
 }
+.body-body{
+    border-radius: 8px;
+    padding:1rem;
+    border:1px solid #b388ff;
+    text-align: left;
+}
 .body-section{
-    padding:3rem;
+    padding:3em;
+    border-bottom: 1px solid #b388ff;
 }
 .top-body{
     background: #b388ff;
     color: white;
+    cursor: pointer;
+}
+.top-body:hover{
+    color: gold;
 }
 .item-title{
     padding:1rem;
@@ -33,12 +70,12 @@
     color: #e7b9ff;;
 }
 .divider{
-    margin-top:1rem;
-    margin-bottom:1rem;
-    border: 1px solid #d2d2d2;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+    border: 1px solid #b388ff;
 }
-.info-text {
-  word-break: break-all;
+.space{
+    margin-top:2rem;
 }
 .circle {
     background: #b388ff;

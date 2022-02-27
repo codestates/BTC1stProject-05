@@ -6,7 +6,7 @@ class AccountList extends Component {
     const { accounts, url } = this.props;
     const accountList = accounts.map(
       (accountInfo) => (
-        <AccountItem stxPrivateKey={accountInfo.stxPrivateKey} url = {url} />
+        <AccountItem account = {accountInfo} url = {url} />
       )
     );
 
