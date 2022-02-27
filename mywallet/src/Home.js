@@ -4,7 +4,6 @@ import './Home.css';
 import AccountList from './AccountList';
 import { useLocation } from 'react-router-dom';
 import { generateNewAccount } from '@stacks/wallet-sdk';
-import { connectWebSocketClient } from '@stacks/blockchain-api-client';
 const Home = () => {
     const [cnt, setCnt] = useState(0);
     const urlList = [

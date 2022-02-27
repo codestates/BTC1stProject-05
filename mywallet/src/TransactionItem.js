@@ -1,20 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './TransactionItem.css';
-import { useNavigate } from 'react-router-dom';
-import { 
-  getAddressFromPrivateKey,
-  TransactionVersion
- } from '@stacks/transactions';
-import {
-    AccountsApi,
-    Configuration,
-} from "@stacks/blockchain-api-client";
-
 const TransactionItem = (props) => {
   const infos = props.infos;
-
-
-  //console.log(balance);
   return (
     <div className="div">
       <div className='box'>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { generateWallet, generateSecretKey, restoreWalletAccounts } from '@stacks/wallet-sdk';
-import { StacksMainnet, StacksTestnet, StacksMocknet } from '@stacks/network';
+import { StacksTestnet } from '@stacks/network';
 const Login = () => {
   const password = "password";
   const [key, setKey] = useState('');
@@ -24,7 +24,7 @@ const Login = () => {
       // `baseWallet` is returned from `generateWallet`
       wallet: genWallet,
       gaiaHubUrl: 'https://hub.blockstack.org',
-      network: new StacksMocknet()
+      network: new StacksTestnet()
     })
     //console.log(restoreWallet);
     navigate('/home', { state: { wallet: restoreWallet } });

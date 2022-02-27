@@ -13,15 +13,6 @@
   border:1px solid #b388ff;
 
 }
-/* .account-item:hover {
-  color: #e7b9ff;
-} */
-/* account-item 사이에 윗 테두리 */
-/* 
-.account-item + .account-item {
-  border-top: 1px solid #e7b9ff;
-}
-*/
 
 .account-text {
   flex: 1; /* 체크, 엑스를 제외한 공간 다 채우기 */
