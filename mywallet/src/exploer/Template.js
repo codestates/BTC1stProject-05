@@ -8,20 +8,29 @@ class Template extends React.Component {
     state = {
         isLoading: false,
         datas: [],
-        index: 0
+        index: 0,
+    }
+    userAddress=""
+    getURL = (type, index) => {
+        switch(type){
+            case 'account':
+                return `http://localhost:3000/${type.toLowerCase()}/specific?chain=main&index=${index}&address=${this.userAddress}`;
+            default:
+                return `http://localhost:3000/${type.toLowerCase()}?chain=main&index=${index}`;
+        }
     }
     getData = async(type) => {
         const {index, datas} = this.state
-        console.log(index);
-        let data = await axios.get(`http://localhost:3000/${type.toLowerCase()}?chain=main&index=${index}`);
+        let url = this.getURL(type, index);
+        let data = await axios.get(url);
         let next = this.state.index + 30;
         let nextDatas = datas.concat(data.data.data);
         
-        console.log(nextDatas);
         this.setState({datas: nextDatas, isLoading:false, index: next});
     }
     async componentDidMount(){
-        this.getData(this.props.type);
+        this.userAddress = this.props.address;
+        this.getData(this.props.type, this.userAddress);
     }
     render(){
         const{type} = this.props;

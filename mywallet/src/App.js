@@ -6,12 +6,14 @@ import Signup from "./Signup";
 import Home from "./Home";
 import Template from './exploer/Template';
 import Specific from './exploer/Specific';
+import Account from './exploer/Account';
 
 class App extends Component {
   render() {
     return (
       <>
         <Routes>
+        <Route exact path='/account' element={<Account />}/>
           <Route exact path='/specific' element={<Specific />}/>
           <Route exact path='/block' element={<Template type="Block"/>}/>
           <Route exact path='/tx' element={<Template type="Tx"/>}/>
